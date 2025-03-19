@@ -1,8 +1,8 @@
 # react-interval-calendar
 
-[![Build Workflow](https://github.com/knightburton/react-interval-calendar/actions/workflows/build.yml/badge.svg)](https://github.com/knightburton/react-interval-calendar/actions/workflows/build.yml)
-![npm](https://img.shields.io/npm/v/@knightburton/react-interval-calendar)
-![npm](https://img.shields.io/npm/dt/@knightburton/react-interval-calendar)
+[![Build Workflow](https://github.com/i-kitaev/react-interval-calendar/actions/workflows/build.yml/badge.svg)](https://github.com/i-kitaev/react-interval-calendar/actions/workflows/build.yml)
+![npm](https://img.shields.io/npm/v/@i-kitaev/react-interval-calendar)
+![npm](https://img.shields.io/npm/dt/@i-kitaev/react-interval-calendar)
 
 Infinite scrolling based calendar for interval dates built with React.
 
@@ -27,18 +27,18 @@ React-Interval-Calendar uses modern web technologies. It's only supports [modern
 
 #### Installation
 ```bash
-$ npm i @knightburton/react-interval-calendar
+$ npm i @i-kitaev/react-interval-calendar
 ```
 or
 ```bash
-yarn add @knightburton/react-interval-calendar
+yarn add @i-kitaev/react-interval-calendar
 ```
 
 ### Usage
 Here's an example of basic usage:
 ```jsx
 import React from 'react';
-import IntervalCalendar from '@knightburton/react-interval-calendar';
+import IntervalCalendar from '@i-kitaev/react-interval-calendar';
 
 const App = () => (
   <IntervalCalendar
@@ -130,7 +130,7 @@ Look for exported interfaces with the name of the component that you want to aug
 
 Define your custom types like the following:
 ```tsx
-declare module '@knightburton/react-interval-calendar' {
+declare module '@i-kitaev/react-interval-calendar' {
   interface ContainerPropsOverrides {
     something?: boolean;
   }
@@ -254,8 +254,8 @@ $ npm start
 
 First off all, thanks for taking the time to contribute! :muscle:
 
-Before any action, please visit the [Code of Conduct](https://github.com/knightburton/react-interval-calendar/blob/main/CODE_OF_CONDUCT.md) and [Contributing guideline](https://github.com/knightburton/react-interval-calendar/blob/main/CONTRIBUTING.md) for more information.
+Before any action, please visit the [Code of Conduct](https://github.com/i-kitaev/react-interval-calendar/blob/main/CODE_OF_CONDUCT.md) and [Contributing guideline](https://github.com/i-kitaev/react-interval-calendar/blob/main/CONTRIBUTING.md) for more information.
 
 ### License
 
-React Interval Calendar is Open Source software under the MIT license. Complete license and copyright information can be found within the [license](https://github.com/knightburton/react-interval-calendar/blob/main/LICENSE).
+React Interval Calendar is Open Source software under the MIT license. Complete license and copyright information can be found within the [license](https://github.com/i-kitaev/react-interval-calendar/blob/main/LICENSE).

@@ -1,4 +1,4 @@
-import IntervalCalendar, { ContainerProps, HeaderCellContentProps, BodyCellContentProps } from '@knightburton/react-interval-calendar';
+import IntervalCalendar, { ContainerProps, HeaderCellContentProps, BodyCellContentProps } from 'react-interval-calendar';
 import './App.css';
 
 const getLabel = (data: { isFirstDayOfYear: boolean; isFirstDayOfMonth: boolean; day: string; date: Date }) => {
@@ -44,7 +44,7 @@ const App = () => (
 
 export default App;
 
-declare module '@knightburton/react-interval-calendar' {
+declare module 'react-interval-calendar' {
   interface ContainerPropsOverrides {
     something?: boolean;
   }

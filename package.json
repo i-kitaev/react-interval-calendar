@@ -1,6 +1,6 @@
 {
   "name": "react-interval-calendar",
-  "version": "3.1.2",
+  "version": "3.1.4",
   "description": "Infinite scrolling based calendar for interval dates built with React.",
   "author": {
     "name": "Imre Kiss"
@@ -8,14 +8,17 @@
   "contributors": [
     {
       "name": "Norbert Nemeth"
+    },
+    {
+      "name": "Ivan Kitaev"
     }
   ],
-  "homepage": "https://github.com/knightburton/react-interval-calendar#readme",
+  "homepage": "https://github.com/i-kitaev/react-interval-calendar#readme",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/knightburton/react-interval-calendar.git"
+    "url": "https://github.com/i-kitaev/react-interval-calendar.git"
   },
   "main": "dist/index.min.js",
   "module": "dist/index.es.js",
