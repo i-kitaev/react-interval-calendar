@@ -35,68 +35,54 @@ const mockBodyRowProps: BodyRowPrivateProps = {
 const inlineSnapshot = `
 <DocumentFragment>
   <ul
-    class="body__row test-body-row"
+    class="test-body-row"
   >
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         25
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         26
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         27
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         28
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         01 Mar
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         02
       </div>
     </li>
     <li
       role="presentation"
     >
-      <div
-        class="body__cell__content"
-      >
+      <div>
         03
       </div>
     </li>

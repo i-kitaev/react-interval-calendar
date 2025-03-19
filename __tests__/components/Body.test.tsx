@@ -19,7 +19,6 @@ const mockBodyProps: BodyPrivateProps = {
 const defaultInlineSnapshot = `
 <div>
   <div
-    class="body"
     id="test"
   >
     <p>
@@ -39,9 +38,7 @@ const defaultInlineSnapshot = `
 `;
 const customInlineSnapshot = `
 <div>
-  <div
-    class="body"
-  >
+  <div>
     <p>
       week
     </p>

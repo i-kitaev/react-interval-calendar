@@ -11,9 +11,7 @@ const mockComponent = ({ className, children, style }: ContainerProps) => (
 );
 const defaultInlineSnapshot = `
 <div>
-  <div
-    class="calendar"
-  >
+  <div>
     <span>
       Mock Children
     </span>
@@ -23,7 +21,6 @@ const defaultInlineSnapshot = `
 const heightInlineSnapshot = `
 <div>
   <div
-    class="calendar"
     style="height: 100px;"
   >
     <span>
@@ -34,9 +31,7 @@ const heightInlineSnapshot = `
 `;
 const componentInlineSnapshot = `
 <div>
-  <p
-    class="calendar"
-  >
+  <p>
     <span>
       Mock Children
     </span>
@@ -46,7 +41,7 @@ const componentInlineSnapshot = `
 const customClassInlineSnapshot = `
 <div>
   <p
-    class="calendar test-calendar"
+    class="test-calendar"
   >
     <span>
       Mock Children

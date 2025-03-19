@@ -2,8 +2,6 @@ import React, { useMemo, useRef, useEffect, memo } from 'react';
 import useOnScreen from '../hooks/useOnScreen';
 import { getCellAttributes } from '../helpers';
 import { VisibilityMatrix, SlotRefComponentProps } from '../types';
-import styles from './styles.less';
-import classnames from '../utils/classnames';
 import BodyCell, { BodyCellSlotProps } from './BodyCell';
 import { BodyCellContentSlotProps } from './BodyCellContent';
 
@@ -62,14 +60,14 @@ const BodyRow = memo(
       return dates;
     }, [startDate, numberOfWeek, locale, shouldRender]);
     const RootSlot = useMemo(() => slots?.root || 'ul', [slots]);
-    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}), className: classnames(styles.body__row, slotProps?.root?.className) }), [slotProps]);
+    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}) }), [slotProps]);
 
     useEffect(() => {
       if (isVisible && !shouldRender && updateVisibilityMatrix) updateVisibilityMatrix(numberOfWeek);
     }, [isVisible, shouldRender, updateVisibilityMatrix, numberOfWeek]);
 
     useEffect(() => {
-      if (ref.current && shouldScroll.current) ref.current.scrollIntoView();
+      if (ref.current && shouldScroll.current) ref.current.scrollIntoView({ block: 'center' });
     }, []);
 
     return (

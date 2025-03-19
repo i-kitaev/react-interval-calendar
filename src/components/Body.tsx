@@ -1,7 +1,5 @@
 import React, { memo, useMemo } from 'react';
 import { SlotComponentProps, VisibilityMatrix } from '../types';
-import classnames from '../utils/classnames';
-import styles from './styles.less';
 import BodyRow, { BodyRowSlotProps } from './BodyRow';
 import { BodyCellSlotProps } from './BodyCell';
 import { BodyCellContentSlotProps } from './BodyCellContent';
@@ -47,7 +45,7 @@ const Body = memo(
     slotProps,
   }: BodyPrivateProps): JSX.Element => {
     const RootSlot = useMemo(() => slots?.root || 'div', [slots]);
-    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}), className: classnames(styles.body, slotProps?.root?.className) }), [slotProps]);
+    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}) }), [slotProps]);
 
     return (
       <RootSlot {...rootProps}>

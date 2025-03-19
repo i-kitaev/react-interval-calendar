@@ -17,12 +17,9 @@ const mockBodyCellProps: BodyCellPrivateProps = {
 const defaultInlineSnapshot = `
 <div>
   <li
-    class="body__cell"
     role="presentation"
   >
-    <div
-      class="body__cell__content"
-    >
+    <div>
       18
     </div>
   </li>
@@ -31,11 +28,11 @@ const defaultInlineSnapshot = `
 const customInlineSnapshot = `
 <div>
   <li
-    class="body__cell test-body-cell"
+    class="test-body-cell"
     role="presentation"
   >
     <p
-      class="body__cell__content test-body-cell-content"
+      class="test-body-cell-content"
     >
       18
     </p>

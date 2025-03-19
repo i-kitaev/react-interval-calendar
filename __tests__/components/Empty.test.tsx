@@ -9,9 +9,7 @@ const mockClassName = 'test-empty';
 const mockComponent = ({ className, label }: EmptyProps): JSX.Element => <p className={className}>{label}</p>;
 const defaultInlineSnapshot = `
 <div>
-  <div
-    class="empty"
-  >
+  <div>
     <p>
       ${defaultLabel}
     </p>
@@ -20,9 +18,7 @@ const defaultInlineSnapshot = `
 `;
 const labelInlineSnapshot = `
 <div>
-  <div
-    class="empty"
-  >
+  <div>
     <p>
       ${mockLabel}
     </p>
@@ -32,7 +28,7 @@ const labelInlineSnapshot = `
 const classNameInlineSnapshot = `
 <div>
   <div
-    class="empty ${mockClassName}"
+    class="${mockClassName}"
   >
     <p>
       ${mockLabel}
@@ -43,7 +39,7 @@ const classNameInlineSnapshot = `
 const customInlineSnapshot = `
 <div>
   <p
-    class="empty ${mockClassName}"
+    class="${mockClassName}"
   >
     ${mockLabel2}
   </p>

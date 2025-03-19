@@ -1,6 +1,4 @@
 import React, { memo } from 'react';
-import classnames from '../utils/classnames';
-import styles from './styles.less';
 import { SlotComponentProps } from '../types';
 
 export interface EmptyPropsOverrides {}
@@ -17,9 +15,8 @@ export type EmptyPrivateProps = {
 };
 
 const Empty = memo(({ slots, slotProps }: EmptyPrivateProps): JSX.Element => {
-  const rootClassName = classnames(styles.empty, slotProps?.root?.className);
   const { label = 'There is no date range to display', ...restProps } = slotProps?.root || {};
-  const rootProps = { ...restProps, ...(slots?.root ? { label } : {}), className: rootClassName };
+  const rootProps = { ...restProps, ...(slots?.root ? { label } : {}) };
   const RootSlot = slots?.root || 'div';
 
   return (

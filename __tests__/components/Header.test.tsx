@@ -19,17 +19,17 @@ const mockCellContentClassName = 'test-cell-content';
 const inlineSnapshot = `
 <div>
   <div
-    class="header test-header"
+    class="test-header"
     role="list"
   >${['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday']
     .map(
       day => `
     <div
-      class="header__cell test-cell"
+      class="test-cell"
       role="listitem"
     >
       <p
-        class="header__cell__content test-cell-content"
+        class="test-cell-content"
       >
         ${day}
       </p>

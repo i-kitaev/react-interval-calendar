@@ -1,8 +1,6 @@
 import React, { memo, useMemo } from 'react';
 import { HeaderCellData, WeekdayIndex, SlotComponentProps } from '../types';
 import { getHeaderWeekdays } from '../helpers';
-import classnames from '../utils/classnames';
-import styles from './styles.less';
 
 // Header
 export interface HeaderPropsOverrides {}
@@ -42,9 +40,9 @@ const Header = memo(({ weekStartsOn, locale, slots, slotProps }: HeaderPrivatePr
   const CellSlot = slots?.cell || 'li';
   const CellContentSlot = slots?.cellContent || HeaderCellContent;
   const { disabled, ...rootSlotProps } = slotProps?.root || {};
-  const rootProps = { ...rootSlotProps, className: classnames(styles.header, slotProps?.root?.className) };
-  const cellProps = { ...(slotProps?.cell || {}), className: classnames(styles.header__cell, slotProps?.cell?.className) };
-  const cellContentProps = { ...(slotProps?.cellContent || {}), className: classnames(styles.header__cell__content, slotProps?.cellContent?.className) };
+  const rootProps = { ...rootSlotProps };
+  const cellProps = { ...(slotProps?.cell || {}) };
+  const cellContentProps = { ...(slotProps?.cellContent || {}) };
 
   if (disabled) return null;
   return (
