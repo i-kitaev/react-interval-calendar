@@ -73,6 +73,7 @@ type SlotProps = {
 export type IntervalCalendarProps = {
   start?: Date;
   end?: Date;
+  scrollTo?: Date;
   locale?: string;
   numberOfRowsFirstRender?: number;
   numberOfRowsPreRender?: number;
@@ -86,6 +87,7 @@ const IntervalCalendar = memo(
   ({
     start = undefined,
     end = undefined,
+    scrollTo = undefined,
     locale = 'default',
     numberOfRowsFirstRender = 8,
     numberOfRowsPreRender = 4,
@@ -94,12 +96,20 @@ const IntervalCalendar = memo(
     slots,
     slotProps,
   }: IntervalCalendarProps): JSX.Element => {
-    const [startDate, , numberOfWeeks, numberOfTodayWeek] = useMemo<CalendarTuple>(() => getCalendarBaseAttributes(start, end, weekStartsOn), [start, end, weekStartsOn]);
+    const startRenderOnScrollTo = startRenderOnCurrentWeek || !!scrollTo;
+
+    const [startDate, , numberOfWeeks, numberOfScrollToWeek] = useMemo<CalendarTuple>(
+      () => getCalendarBaseAttributes(start, end, scrollTo, weekStartsOn),
+      [start, end, scrollTo, weekStartsOn],
+    );
 
     const [visibilityMatrix, setVisibilityMatrix] = useState<VisibilityMatrix>(
-      Array(startRenderOnCurrentWeek ? numberOfTodayWeek + numberOfRowsFirstRender : numberOfRowsFirstRender)
+      Array(startRenderOnScrollTo ? numberOfScrollToWeek + numberOfRowsFirstRender : numberOfRowsFirstRender)
         .fill(null)
-        .reduce((acc: VisibilityMatrix, _, week) => ({ ...acc, [week]: startRenderOnCurrentWeek ? !(week < numberOfTodayWeek - 6) : true }), {}),
+        .reduce(
+          (acc: VisibilityMatrix, _, week) => ({ ...acc, [week]: startRenderOnScrollTo ? !(week < numberOfScrollToWeek - Math.ceil(numberOfRowsFirstRender / 2)) : true }),
+          {},
+        ),
     );
 
     const handleVisibilityMatrixChange = useCallback(
@@ -124,8 +134,8 @@ const IntervalCalendar = memo(
           <Body
             startDate={startDate}
             numberOfWeeks={numberOfWeeks}
-            numberOfTodayWeek={numberOfTodayWeek}
-            startRenderOnCurrentWeek={startRenderOnCurrentWeek}
+            numberOfTodayWeek={numberOfScrollToWeek}
+            startRenderOnCurrentWeek={startRenderOnScrollTo}
             locale={locale}
             visibilityMatrix={visibilityMatrix}
             updateVisibilityMatrix={handleVisibilityMatrixChange}

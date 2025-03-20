@@ -30,7 +30,7 @@ export const getCellAttributes = (startDate: Date, numberOfWeek: number, numberO
   return {
     key: `${numberOfWeek}-${numberOfDay}`,
     date,
-    day: formatDate(date, locale, { day: '2-digit' }),
+    day: formatDate(date, locale, { day: 'numeric' }),
     month: formatDate(date, locale, { month: 'short' }),
     year: formatDate(date, locale, { year: 'numeric' }),
     isFirstDayOfYear: isFirstDayOfYear(date),
@@ -48,16 +48,17 @@ export const getCellAttributes = (startDate: Date, numberOfWeek: number, numberO
  *
  * @param startDate Start date of the selected interval.
  * @param endDate End date of the selected interval.
+ * @param scrollTo Scroll to date of the selected interval.
  * @param weekStartsOn Index of the first day of the week.
  */
-export const getCalendarBaseAttributes = (startDate?: Date, endDate?: Date, weekStartsOn: WeekdayIndex = 0): CalendarTuple => {
+export const getCalendarBaseAttributes = (startDate?: Date, endDate?: Date, scrollTo?: Date, weekStartsOn: WeekdayIndex = 0): CalendarTuple => {
   if (!startDate || !endDate) return [null, null, 0, 0];
   const monthStart = getMonthStart(startDate);
   const monthEnd = getMonthEnd(endDate);
   const alfa = getWeekStart(monthStart, weekStartsOn);
   const omega = getWeekEnd(monthEnd, weekStartsOn);
   const weeks = getDifferenceInCalendarWeeks(omega, alfa, weekStartsOn);
-  const weeksToday = getDifferenceInCalendarWeeks(alfa, new Date(), weekStartsOn);
+  const weeksToday = getDifferenceInCalendarWeeks(alfa, scrollTo || new Date(), weekStartsOn);
 
   return [alfa, omega, weeks, weeksToday];
 };
