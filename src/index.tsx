@@ -106,10 +106,7 @@ const IntervalCalendar = memo(
     const [visibilityMatrix, setVisibilityMatrix] = useState<VisibilityMatrix>(
       Array(startRenderOnScrollTo ? numberOfScrollToWeek + numberOfRowsFirstRender : numberOfRowsFirstRender)
         .fill(null)
-        .reduce(
-          (acc: VisibilityMatrix, _, week) => ({ ...acc, [week]: startRenderOnScrollTo ? !(week < numberOfScrollToWeek - Math.ceil(numberOfRowsFirstRender / 2)) : true }),
-          {},
-        ),
+        .reduce((acc: VisibilityMatrix, _, week) => ({ ...acc, [week]: startRenderOnScrollTo ? !(week <= numberOfScrollToWeek - numberOfRowsFirstRender) : true }), {}),
     );
 
     const handleVisibilityMatrixChange = useCallback(
