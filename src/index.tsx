@@ -109,7 +109,7 @@ const IntervalCalendar = memo(
         .reduce(
           (acc: VisibilityMatrix, _, week) => ({
             ...acc,
-            [week]: startRenderOnScrollTo ? Math.ceil(numberOfScrollToWeek / 2) < week && week < numberOfScrollToWeek + numberOfRowsFirstRender : true,
+            [week]: startRenderOnScrollTo ? numberOfScrollToWeek - numberOfRowsFirstRender < week && week < numberOfScrollToWeek + numberOfRowsFirstRender : true,
           }),
           {},
         ),

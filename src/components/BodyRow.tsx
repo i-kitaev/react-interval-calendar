@@ -55,12 +55,12 @@ const BodyRow = memo(
       [visibilityMatrix, numberOfWeek, numberOfRowsPreRender],
     );
     const data = useMemo(() => {
-      if (!startDate || !shouldRender) return [];
-      const dates = Array.from(Array(7).keys()).map(day => getCellAttributes(startDate, numberOfWeek, day, locale));
-      return dates;
-    }, [startDate, numberOfWeek, locale, shouldRender]);
+      if (!startDate) return [];
+
+      return Array.from(Array(7).keys()).map(day => getCellAttributes(startDate, numberOfWeek, day, locale));
+    }, [startDate, numberOfWeek, locale]);
     const RootSlot = useMemo(() => slots?.root || 'ul', [slots]);
-    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}) }), [slotProps]);
+    const rootProps = useMemo(() => ({ ...(slotProps?.root || {}), cells: data }), [data, slotProps?.root]);
 
     useEffect(() => {
       if (isVisible && !shouldRender && updateVisibilityMatrix) updateVisibilityMatrix(numberOfWeek);
@@ -72,7 +72,7 @@ const BodyRow = memo(
 
     return (
       <RootSlot ref={ref} key={numberOfWeek} {...rootProps}>
-        {data.map(cell => (
+        {(shouldRender ? data : []).map(cell => (
           <BodyCell
             key={cell.key}
             data={cell}
